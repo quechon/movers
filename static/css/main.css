@@ -157,3 +157,19 @@ footer img {
 .on {
   display: block;
 }
+
+@media screen and (min-width: 768px) {
+
+  #collapse-button {
+    display: none;
+  }
+
+  .hide {
+    display: block;
+  }
+
+  nav ul {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid_template-rows: 1fr;
+  }
+}

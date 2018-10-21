@@ -1,0 +1,7 @@
+# ignore files
+
+*__pycache__
+.git
+.pytest_cache
+*config.py
+*.db

@@ -50,23 +50,14 @@
 
     <h2>Reviews</h2>
 
-  <div class="review on">
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-    <p><span class="review-name">Jonh Doe</span><span>Sarasota, FL</span></p>
-  </div>
+  {% for review in reviews %}
 
-  <div class="review">
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-    <p><span class="review-name">David Calderon</span><span>Sarasota, FL</span></p>
-  </div>
+    <div class="review">
+      <p>{{ review[1] }}</p>
+      <p><span class="review-name">{{ review[0] }}</span><span>{{ review[2] }}</span></p>
+    </div>
 
-  <div class="review">
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-    <p><span class="review-name">Jorge Williams</span><span>Sarasota, FL</span></p>
-  </div>
+  {% endfor %}
 
   <div id="buttons-container">
     <img id="prev-b" src="{{ url_for('static', filename='image/left.svg') }}">
@@ -80,6 +71,7 @@
   <h2>Contact us</h2>
 
   <form>
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
     <input type="text" placeholder="First name" autocomplete="false" name="first_name">
     <input type="text" placeholder="Last name" autocomplete="false" name="last_name">
     <input type="text" placeholder="Email" autocomplete="false" name="email">

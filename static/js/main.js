@@ -9,7 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('button').addEventListener('click', (e) => {
 
     e.preventDefault();
-    validator(document.querySelector('form'))
+
+    const f = document.querySelector('form')
+    if (validator(f)) {
+      const http = new XMLHttpRequest()
+      const form = new FormData(f)
+      http.open('POST', '/mail/api', true)
+      http.send(form)
+    }
 
 
   })

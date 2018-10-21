@@ -14,8 +14,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (validator(f)) {
       const http = new XMLHttpRequest()
       const form = new FormData(f)
-      http.open('POST', '/mail/api', true)
+      http.open('POST', '/api/mail', true)
+
+      http.onload = function (data) {
+        if (http.status == 200) {
+          for (let i = 0; i > f.children.length; i++) {
+            f.children[i].value = '';
+          }
+        }else{
+          console.log('error in sending email')
+        }
+      }
       http.send(form)
+
     }
 
 
@@ -86,7 +97,6 @@ const validator = (form) => {
   }
 
   // If al least one value in list is false return false
-  console.log(v)
   v.forEach(valid => {
     if (valid == false) {
       pass = false;

@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     this.nextElementSibling.classList.toggle('show');
   })
 
+  document.querySelector('.review').classList.add('on');
   document.querySelector('#next-b').addEventListener('click', () => { switchReview('next') })
   document.querySelector('#prev-b').addEventListener('click', () => { switchReview('prev') })
   document.querySelector('button').addEventListener('click', (e) => {
@@ -17,12 +18,18 @@ document.addEventListener('DOMContentLoaded', () => {
       http.open('POST', '/api/mail', true)
 
       http.onload = function (data) {
+        console.log(http.status == 200)
+
         if (http.status == 200) {
-          for (let i = 0; i > f.children.length; i++) {
-            f.children[i].value = '';
+
+          for (let i = 0; i < f.children.length; i++) {
+
+            if (f.children[i].type != 'hidden' ) {
+              f.children[i].value = '';
+            }
           }
         }else{
-          console.log('error in sending email')
+          console.log(data)
         }
       }
       http.send(form)

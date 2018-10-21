@@ -2,10 +2,35 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <title>{% block title %}{% endblock %}</title>
   </head>
   <body>
+    <div>
+      <nav>
+        <img id="collapse-button" src="{{ url_for('static', filename='image/menu.svg') }}" alt="menu">
+        <div class="hide">
+          <ul>
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#contact-us">CONTACT US</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="container">
     {% block body %}
     {% endblock %}
+    </div>
+    <footer>
+      <h2>Share</h2>
+      <div class="separator"></div>
+      <img src="{{ url_for('static', filename='image/facebook.svg') }}">
+      <img src="{{ url_for('static', filename='image/instagram.svg') }}">
+      <img src="{{ url_for('static', filename='image/tweeter.svg') }}">
+    </footer>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
   </body>
 </html>

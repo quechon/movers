@@ -2,6 +2,7 @@ from flask import Flask
 from .models import db
 from .form import csrf
 from .config import DevelopmentConfig
+from flask_mail import Mail
 
 # Initialize app
 app = Flask(__name__)
@@ -11,6 +12,7 @@ app.config.from_object(DevelopmentConfig)
 # Initialize extentions
 db.init_app(app)
 csrf.init_app(app)
+mail = Mail(app)
 
 
 # Include view

@@ -3,7 +3,7 @@ from movers.form import ReviewForm
 
 api = Blueprint('api', __name__)
 
-@api.route('/review', methods=['POST'])
+@api.route('/mail', methods=['POST'])
 def review():
 
     form = ReviewForm()

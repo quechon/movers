@@ -15,9 +15,9 @@ def review():
     if form.validate_on_submit():
 
         msg = Message('Message from movers', sender='el.quechon2@gmail.com',
-                                            recipients=[request.form['email']])
-        msg.body = request.form['message']
-        msg.html = '<p>' + request.form['message'] + '<p>'
+                                            recipients=['el.quechon@gmail.com'])
+        msg.body = request.form['message'] + ' ' + request.form['email']
+        msg.html = '<p>' + request.form['message'] + ' ' + request.form['email'] + '<p>'
 
         mail.send(msg)
 

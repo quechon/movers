@@ -51,8 +51,6 @@ nav a {
 
 .container {
   padding: 0 20px;
-  width: 50%;
-  margin: 0 auto;
 }
 
 section, footer {
@@ -76,6 +74,7 @@ section p {
 #five p {
   text-align: center;
   font-size: 15px;
+  line-height: 21px;
 }
 
 #five span {
@@ -115,6 +114,11 @@ input, textarea {
   color: rgba(0, 0, 0, 0.5)
 }
 
+textarea {
+  resize: none;
+  height: 100px;
+}
+
 #contact-us button {
   width: 97%;
   background-color: #c1151b;
@@ -138,7 +142,7 @@ footer h2 {
 }
 
 footer .separator {
-  width: 80%;
+  width: 300px;
   border-top: solid 1px #fff9;
   margin: 0 auto 20px auto;
 }
@@ -147,6 +151,7 @@ footer img {
   width: 41px;
   height: 41px;
   margin: 0 30px 30px 30px;
+  cursor: pointer;
 }
 
 .review {
@@ -167,6 +172,19 @@ footer img {
 
 @media screen and (min-width: 768px) {
 
+  nav {
+    grid-template-columns: auto repeat(2, 345.5px) auto;
+  }
+
+  .container {
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  nav div {
+    grid-column: 2/4;
+  }
+
   #collapse-button {
     display: none;
   }
@@ -177,6 +195,7 @@ footer img {
 
   nav ul {
     grid-template-columns: repeat(3, 1fr);
+    border-top: none;
 
   }
 
@@ -185,17 +204,17 @@ footer img {
   }
 
   nav li:nth-child(1) {
-    justify-self: end;
+    justify-self: start;
   }
 
   nav li:nth-child(3) {
-    justify-self: start;
+    justify-self: end;
   }
 
   nav a {
     line-height: var(--nav-height);
     font-weight: bold;
-    padding: 16px 10px;
+    padding: 17px  10px 16px 10px;
   }
 
   nav a:hover {
@@ -206,4 +225,14 @@ footer img {
     width: 500px;
   }
 
+  .services {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 56px;
+  }
+
+  #contact-us {
+    max-width: 387px;
+    margin: 0 auto;
+  }
 }

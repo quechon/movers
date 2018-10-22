@@ -1,5 +1,6 @@
 :root {
   --nav-footer-color: #1e1e1e;
+  --nav-height: 49px;
 }
 
 body {
@@ -20,7 +21,7 @@ body {
 nav {
   background-color: var(--nav-footer-color);
   display: grid;
-  grid-template-rows: 49px auto;
+  grid-template-rows: var(--nav-height) auto;
   margin: 0 0 45px 0;
 }
 
@@ -41,10 +42,6 @@ nav ul {
   grid-template-rows: repeat(3,40px);
 }
 
-nav li:hover {
-  background-color: rgba(255, 255, 255, 0.35);
-}
-
 nav a {
   text-decoration: none;
   color: #fff;
@@ -54,6 +51,8 @@ nav a {
 
 .container {
   padding: 0 20px;
+  width: 50%;
+  margin: 0 auto;
 }
 
 section, footer {
@@ -158,6 +157,14 @@ footer img {
   display: block;
 }
 
+@media screen and (max-width: 767px) {
+
+  nav li:hover {
+    background-color: rgba(255, 255, 255, 0.35);
+  }
+
+}
+
 @media screen and (min-width: 768px) {
 
   #collapse-button {
@@ -169,7 +176,34 @@ footer img {
   }
 
   nav ul {
-    grid-template-columns: 1fr 1fr 1fr;
-    grid_template-rows: 1fr;
+    grid-template-columns: repeat(3, 1fr);
+
   }
+
+  nav li {
+    height: var(--nav-height);
+  }
+
+  nav li:nth-child(1) {
+    justify-self: end;
+  }
+
+  nav li:nth-child(3) {
+    justify-self: start;
+  }
+
+  nav a {
+    line-height: var(--nav-height);
+    font-weight: bold;
+    padding: 16px 10px;
+  }
+
+  nav a:hover {
+    background-color: rgba(255, 255, 255, 0.35);
+  }
+
+  section img {
+    width: 500px;
+  }
+
 }
